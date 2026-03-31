@@ -63,8 +63,6 @@ export default function App() {
     window.location.href = "https://pay.hotmart.com/J105130980G?checkoutMode=10&bid=1774819218146";
   };
 
-  const [showOverlay, setShowOverlay] = useState(true);
-
   return (
     <div className="min-h-screen bg-[#f5f5f5] font-sans text-gray-900">
       {/* 1. Urgency Bar */}
@@ -107,28 +105,18 @@ export default function App() {
           </div>
 
           <div 
-            className="mt-10 mx-auto max-w-[350px] overflow-hidden rounded-2xl shadow-2xl border-4 border-[#ff6b81] relative cursor-pointer"
-            onClick={() => setShowOverlay(false)}
+            className="mt-10 mx-auto max-w-[350px] overflow-hidden rounded-2xl shadow-2xl border-4 border-[#ff6b81] relative"
           >
             <div style={{ padding: '173.33% 0 0 0', position: 'relative' }}>
               <iframe 
-                src="https://player.vimeo.com/video/1178270647?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&autoplay=1&muted=1" 
+                src="https://player.vimeo.com/video/1178270647?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" 
                 frameBorder="0" 
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} 
                 title="WhatsApp Video 2026-03-29 at 23.24.52"
               ></iframe>
             </div>
-            {/* Overlay "Clique para assistir" */}
-            {showOverlay && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 pointer-events-none">
-                <div className="animate-pulse rounded-full bg-[#ff6b81] px-6 py-3 text-lg font-bold text-white shadow-lg">
-                  CLIQUE PARA ASSISTIR
-                </div>
-                <p className="mt-2 text-xs font-bold text-white uppercase drop-shadow-md">Ativar Som</p>
-              </div>
-            )}
           </div>
 
           <div className="mt-8 flex flex-col items-center gap-2">

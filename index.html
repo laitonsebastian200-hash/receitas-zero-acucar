@@ -3,6 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        function makeWritable(obj, prop) {
+          try {
+            var original = obj[prop];
+            Object.defineProperty(obj, prop, {
+              get: function() { return original; },
+              set: function(v) { original = v; },
+              configurable: true,
+              enumerable: true
+            });
+          } catch (e) {}
+        }
+        makeWritable(window, 'fetch');
+        makeWritable(window, 'XMLHttpRequest');
+        if (typeof Window !== 'undefined' && Window.prototype) {
+          makeWritable(Window.prototype, 'fetch');
+          makeWritable(Window.prototype, 'XMLHttpRequest');
+        }
+      })();
+    </script>
     <title>My Google AI Studio App</title>
     <script
       src="https://cdn.utmify.com.br/scripts/utms/latest.js"
